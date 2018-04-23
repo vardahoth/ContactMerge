@@ -23,7 +23,17 @@ class CompareContactPartsTest {
 
     @Test
     void doNamesMatch_NoDifferentFirstName() {
-        assertTrue(false);
+        Contact c1 = new Contact();
+        c1.setFirstName("John");
+        c1.setLastName("Doe");
+
+        Contact c2 = new Contact();
+        c2.setFirstName("Jane");
+        c2.setLastName("Doe");
+
+        CompareContactParts comparer = new CompareContactParts(c1, c2);
+
+        assertEquals(AnswerType.no, comparer.doNamesMatch());
     }
 
     @Test
